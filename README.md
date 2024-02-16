@@ -1,5 +1,5 @@
 # Aurora---前后端分离博客
-
+### 请注意，本分支为auror博客的超重分支，您需要额外配置nacos的连接，配置文件与原aurora一致，最低配置：单机2核心4gb，建议配置：大于1台服务器且各自为2核心4gb
 ### 轻量版后端: https://github.com/zhouyqxy/aurora_Lite
 
 ## 前言
