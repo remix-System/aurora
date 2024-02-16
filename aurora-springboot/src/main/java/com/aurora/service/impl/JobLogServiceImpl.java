@@ -22,6 +22,7 @@ import java.util.Objects;
 @Service
 public class JobLogServiceImpl extends ServiceImpl<JobLogMapper, JobLog> implements JobLogService {
 
+
     @Autowired
     private JobLogMapper jobLogMapper;
 
@@ -59,5 +60,4 @@ public class JobLogServiceImpl extends ServiceImpl<JobLogMapper, JobLog> impleme
     public List<String> listJobLogGroups() {
         return jobLogMapper.listJobLogGroups();
     }
-
 }

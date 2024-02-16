@@ -3,7 +3,7 @@ package com.aurora.config.properties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-
+    //TODO oss上传配置
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "upload.oss")

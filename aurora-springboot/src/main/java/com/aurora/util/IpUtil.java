@@ -1,6 +1,5 @@
 package com.aurora.util;
 
-import com.aurora.constant.CommonConstant;
 import eu.bitwalker.useragentutils.UserAgent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -90,14 +89,11 @@ public class IpUtil {
     }
 
     public static String getIpProvince(String ipSource) {
-        if (StringUtils.isBlank(ipSource)) {
-            return CommonConstant.UNKNOWN;
-        }
         String[] strings = ipSource.split("\\|");
-        if (strings.length > 1 && strings[1].endsWith("省")) {
+        if (strings[1].endsWith("省")) {
             return StringUtils.substringBefore(strings[1], "省");
         }
-        return strings[0];
+        return strings[1];
     }
 
     public static UserAgent getUserAgent(HttpServletRequest request) {

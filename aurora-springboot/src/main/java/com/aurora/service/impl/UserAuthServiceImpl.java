@@ -79,7 +79,7 @@ public class UserAuthServiceImpl implements UserAuthService {
         map.put("content", "您的验证码为 " + code + " 有效期15分钟，请不要告诉他人哦！");
         EmailDTO emailDTO = EmailDTO.builder()
                 .email(username)
-                .subject(CommonConstant.CAPTCHA)
+                .subject("验证码")
                 .template("common.html")
                 .commentMap(map)
                 .build();
@@ -116,7 +116,6 @@ public class UserAuthServiceImpl implements UserAuthService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public void register(UserVO userVO) {
         if (!checkEmail(userVO.getUsername())) {
             throw new BizException("邮箱格式不对!");
@@ -155,7 +154,6 @@ public class UserAuthServiceImpl implements UserAuthService {
     }
 
     @Override
-    @SuppressWarnings("all")
     public void updateAdminPassword(PasswordVO passwordVO) {
         UserAuth user = userAuthMapper.selectOne(new LambdaQueryWrapper<UserAuth>()
                 .eq(UserAuth::getId, UserUtil.getUserDetailsDTO().getId()));
@@ -202,5 +200,6 @@ public class UserAuthServiceImpl implements UserAuthService {
                 .eq(UserAuth::getUsername, user.getUsername()));
         return Objects.nonNull(userAuth);
     }
+
 
 }

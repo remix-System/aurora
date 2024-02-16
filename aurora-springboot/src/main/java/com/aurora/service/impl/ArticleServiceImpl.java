@@ -32,7 +32,6 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.ByteArrayInputStream;
 import java.time.LocalDateTime;
@@ -99,7 +98,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public PageResultDTO<ArticleCardDTO> listArticles() {
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<Article>()
                 .eq(Article::getIsDelete, 0)
-                .in(Article::getStatus, 1, 2);
+                .eq(Article::getStatus, 1);
         CompletableFuture<Integer> asyncCount = CompletableFuture.supplyAsync(() -> articleMapper.selectCount(queryWrapper));
         List<ArticleCardDTO> articles = articleMapper.listArticles(PageUtil.getLimitCurrent(), PageUtil.getSize());
         return new PageResultDTO<>(articles, asyncCount.get());
@@ -237,7 +236,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public void saveOrUpdateArticle(ArticleVO articleVO) {
         Category category = saveArticleCategory(articleVO);
         Article article = BeanCopyUtil.copyObject(articleVO, Article.class);
@@ -274,7 +272,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public void deleteArticles(List<Integer> articleIds) {
         articleTagMapper.delete(new LambdaQueryWrapper<ArticleTag>()
                 .in(ArticleTag::getArticleId, articleIds));
@@ -282,7 +279,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public ArticleAdminViewDTO getArticleByIdAdmin(Integer articleId) {
         Article article = articleMapper.selectById(articleId);
         Category category = categoryMapper.selectById(article.getCategoryId());
@@ -336,8 +332,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return category;
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    public void saveArticleTag(ArticleVO articleVO, Integer articleId) {
+    private void saveArticleTag(ArticleVO articleVO, Integer articleId) {
         if (Objects.nonNull(articleVO.getId())) {
             articleTagMapper.delete(new LambdaQueryWrapper<ArticleTag>()
                     .eq(ArticleTag::getArticleId, articleVO.getId()));

@@ -2,10 +2,10 @@ package com.aurora.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-
+import org.springframework.stereotype.Component;
+    //TODO minio上传配置
 @Data
-@Configuration
+@Component
 @ConfigurationProperties(prefix = "upload.minio")
 public class MinioProperties {
 

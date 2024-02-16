@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-
+//    TODO 文件上传的抽象类
 @Service
 public abstract class AbstractUploadStrategyImpl implements UploadStrategy {
 
+//    TODO 传入文件以及文件路径执行上传
     @Override
     public String uploadFile(MultipartFile file, String path) {
         try {
@@ -37,7 +38,7 @@ public abstract class AbstractUploadStrategyImpl implements UploadStrategy {
             throw new BizException("文件上传失败");
         }
     }
-
+//    TODO 以下三个类交给继承的类重写
     public abstract Boolean exists(String filePath);
 
     public abstract void upload(String path, String fileName, InputStream inputStream) throws IOException;

@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * @author 花未眠
- * elasticsearch
+ * @author xinchenXE
+ * TODO elasticsearch
  */
 @Repository
 public interface ElasticsearchMapper extends ElasticsearchRepository<ArticleSearchDTO,Integer> {

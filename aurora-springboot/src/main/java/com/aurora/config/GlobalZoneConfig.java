@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
 import static com.aurora.enums.ZoneEnum.SHANGHAI;
-
+    //TODO 全局时区
 @Configuration
 public class GlobalZoneConfig {
 

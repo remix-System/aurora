@@ -171,5 +171,4 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
                 .filter(item -> Objects.nonNull(item.getParentId()))
                 .collect(Collectors.groupingBy(Resource::getParentId));
     }
-
 }

@@ -2,10 +2,12 @@ package com.aurora.model.dto;
 
 import com.aurora.entity.Tag;
 import com.aurora.entity.UserInfo;
+import io.swagger.models.auth.In;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -39,5 +41,7 @@ public class ArticleCardDTO {
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
+
+    private Integer Type;
 
 }

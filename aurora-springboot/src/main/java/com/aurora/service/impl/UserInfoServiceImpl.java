@@ -132,7 +132,6 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void updateUserDisable(UserDisableVO userDisableVO) {
-        removeOnlineUser(userDisableVO.getId());
         UserInfo userInfo = UserInfo.builder()
                 .id(userDisableVO.getId())
                 .isDisable(userDisableVO.getIsDisable())
@@ -171,5 +170,4 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         UserInfo userInfo = userInfoMapper.selectById(id);
         return BeanCopyUtil.copyObject(userInfo, UserInfoDTO.class);
     }
-
 }

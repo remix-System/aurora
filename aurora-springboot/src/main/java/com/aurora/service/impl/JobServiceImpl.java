@@ -102,6 +102,7 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
 
     @SneakyThrows
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updateJobStatus(JobStatusVO jobStatusVO) {
         Job job = jobMapper.selectById(jobStatusVO.getId());
         if (job.getStatus().equals(jobStatusVO.getStatus())) {

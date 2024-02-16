@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import static com.aurora.constant.RabbitMQConstant.*;
-
+    //TODO Rabbit配置
 @Configuration
 public class RabbitMQConfig {
 

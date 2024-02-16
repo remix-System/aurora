@@ -68,16 +68,4 @@ public class WebsiteConfigDTO {
 
     private String alipayQRCode;
 
-    private String favicon;
-
-    /**
-     * 网页标题
-     */
-    private String websiteTitle;
-
-    /**
-     * 公安部备案编号
-     */
-    private String gonganBeianNumber;
-
 }

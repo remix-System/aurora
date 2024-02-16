@@ -37,9 +37,13 @@ public class MinioUploadStrategyImpl extends AbstractUploadStrategyImpl {
                         .build());
     }
 
+//    @Override
+//    public String getFileAccessUrl(String filePath) {
+//        return minioProperties.getUrl() + filePath;
+//    }
     @Override
     public String getFileAccessUrl(String filePath) {
-        return minioProperties.getUrl() + filePath;
+        return minioProperties.getEndpoint() + '/' + minioProperties.getBucketName() + '/' + filePath;
     }
 
     private MinioClient getMinioClient() {

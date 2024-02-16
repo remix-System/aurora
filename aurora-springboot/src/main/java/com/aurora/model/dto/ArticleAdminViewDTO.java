@@ -8,8 +8,8 @@ import java.util.List;
 
 
 /**
- * @author 花未眠
- * 文章编辑页码DTO
+ * @author TODO xinchenXE
+ * TODO 文章编辑页码DTO
  */
 @Data
 @Builder
@@ -21,8 +21,6 @@ public class ArticleAdminViewDTO {
     private Integer id;
 
     private String articleTitle;
-
-    private String articleAbstract;
 
     private String articleContent;
 

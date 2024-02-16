@@ -2,13 +2,25 @@
 node_modules
 dist
 
+<<<<<<< HEAD
 .env.local
 .env.*.local
 
+=======
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+>>>>>>> b6ffbe3 (xinchen)
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
+=======
+# Editor directories and files
+>>>>>>> b6ffbe3 (xinchen)
 .idea
 .vscode
 *.iml
@@ -17,6 +29,11 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 
 target
 aurora-springboot/src/test
+=======
+target
+aurora-springboot/src/test
+>>>>>>> b6ffbe3 (xinchen)

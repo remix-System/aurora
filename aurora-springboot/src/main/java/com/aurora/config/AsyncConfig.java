@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
+    //TODO 异步线程池自动化配置
 @EnableAsync
 @Configuration
 public class AsyncConfig {

@@ -19,6 +19,7 @@ import java.util.List;
 @Service
 public class ExceptionLogServiceImpl extends ServiceImpl<ExceptionLogMapper, ExceptionLog> implements ExceptionLogService {
 
+
     @Override
     public PageResultDTO<ExceptionLogDTO> listExceptionLogs(ConditionVO conditionVO) {
         Page<ExceptionLog> page = new Page<>(PageUtil.getCurrent(), PageUtil.getSize());
@@ -28,5 +29,4 @@ public class ExceptionLogServiceImpl extends ServiceImpl<ExceptionLogMapper, Exc
         List<ExceptionLogDTO> exceptionLogDTOs = BeanCopyUtil.copyList(exceptionLogPage.getRecords(), ExceptionLogDTO.class);
         return new PageResultDTO<>(exceptionLogDTOs, (int) exceptionLogPage.getTotal());
     }
-
 }

@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import java.util.Collections;
-
+    //TODO API文档生成配置
 @Configuration
 @EnableSwagger2WebMvc
 public class Knife4jConfig {
@@ -22,7 +22,7 @@ public class Knife4jConfig {
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .protocols(Collections.singleton("https"))
-                .host("https://www.linhaojun.top")
+                .host("https://plusx.xinchen.xyz")
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.aurora.controller"))
@@ -34,9 +34,9 @@ public class Knife4jConfig {
         return new ApiInfoBuilder()
                 .title("aurora文档")
                 .description("aurora")
-                .contact(new Contact("花未眠", "", "1909925152@qq.com"))
-                .termsOfServiceUrl("https://www.linhaojun.top/api")
-                .version("1.0")
+                .contact(new Contact("xinchenXE", "", "1785148923@qq.com"))
+                .termsOfServiceUrl("https://plusx.xinchen.xyz/api")
+                .version("1.3")
                 .build();
     }
 
