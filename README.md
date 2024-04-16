@@ -5,7 +5,7 @@
     - nacos2.2.0
     - druid
     - spark
-   - 前端：
+  - 前端：
     - live2d
     - 美化过的界面
     
